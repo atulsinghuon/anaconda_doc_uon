@@ -289,7 +289,7 @@ a password prompt should appear, that on entering the password will not do anyth
 
 13. Go to your laptop's or system's web browser and paste this link onto it. Your jupyter-notebook session should now be visible from your laptop's browser. 
 
-This simply means that you are able to access ADA (or the booked resource from step 3) from your web browser. 
+This simply means that you are able to access the compute node of ADA (or the booked resource from step 3) from your web browser. 
 
 14. Have fun with your work. 
 
