@@ -1,0 +1,519 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Anaconda" href="01anaconda_chapter.html" />
+
+    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+        <title>Using Jupyter notebooks on ADA - Anaconda on ADA 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=058af07a" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Anaconda on ADA 1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">Anaconda on ADA 1.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01anaconda_chapter.html">Anaconda</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Using Jupyter notebooks on ADA</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="using-jupyter-notebooks-on-ada">
+<h1>Using Jupyter notebooks on ADA<a class="headerlink" href="#using-jupyter-notebooks-on-ada" title="Link to this heading">#</a></h1>
+<p>Jupyter notebooks are a convinient way to test/share python code for various development work.</p>
+<p>There are majorly two ways in which jupyter notebooks can be run on ADA.
+The requirement for both of them is that they <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file be copied onto one of your directory inside your home directory, along with the data/csv file that the notebook may use.</p>
+<p>The two methods are,</p>
+<ol class="arabic simple">
+<li><p>Using OpenOnDemand</p></li>
+<li><p>Using an interactive session.</p></li>
+</ol>
+<section id="using-openondemand">
+<h2>Using OpenOnDemand<a class="headerlink" href="#using-openondemand" title="Link to this heading">#</a></h2>
+<p>As mentioned before copy the jupyter notebook onto one of your home directories on ADA.</p>
+<p>Before opening OpenOnDemand, create your required environement at your home login first. In this example we create <code class="docutils literal notranslate"><span class="pre">juptest</span></code> environment.</p>
+<ol class="arabic simple">
+<li><p>Load the anaconda module.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>anaconda-uoneasy/2023.02.6
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>See the usual method to create a conda environement here <a class="reference internal" href="01anaconda_chapter.html#create-a-conda-env"><span class="std std-ref">Create a conda env</span></a>.</p></li>
+</ol>
+<p>3. Make sure all the necessary packages that the jupyter-notebook will use are installed in this environment and is done within the login node itself.
+This is because the compute nodes will not have internet access, and hence a pip instlal or a conda install will not work.</p>
+<p>Additionally, it is important to also install the jupyter specific packages. Namely <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>.
+This can be done by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inside an activated environement that will contain all the packages required by the jupyter-notebook.</span>
+conda<span class="w"> </span>install<span class="w"> </span>jupyter
+</pre></div>
+</div>
+<p>4. After installing all the packages, open OpenOnDemand form here,
+<a class="reference external" href="https://hpcondemand01.ada.nottingham.ac.uk/">OpenOnDemand Webpage</a></p>
+<ol class="arabic simple" start="5">
+<li><p>Once OpenOnDemand page opens up, go to Interactive sessions -&gt; VNC desktop sessions</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/openvnc.png" src="_images/openvnc.png" />
+</figure>
+<ol class="arabic" start="6">
+<li><p>One can now book the appropriate resource for the jupyter-notebook code to use, based on following</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Set the number of hours for which you want to book the resource.</p></li>
+<li><p>Set the number of cores for your job. (Note that this is on defq or hmemq partitions, which mean each node has a maximum of 96 cores.)</p></li>
+<li><p>Set the amount of memory required for your job. (The thumb rule for setting the memory atleast for the defq is 4 times the number of cores. For hmemq this can be higher.)</p></li>
+<li><p>Set the partition (either defq or hmemq).</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<figure class="align-default">
+<img alt="_images/select_resource.png" src="_images/select_resource.png" />
+</figure>
+<ol class="arabic simple" start="7">
+<li><p>Launch the VNC desktop session by clicking “Launch”.</p></li>
+<li><p>Once the resource becomes available, click “Launch VNC sessoin”, and you will be taken to a linux based desktop like session, along with an email that your session has started.</p></li>
+<li><p>Right click anywhere on the desktop screen and click “Open terminal here”. This will open up a shell with your login node visible.</p></li>
+<li><p>Change to the directory which contains the jupyter-notebook.</p></li>
+<li><p>Activate the conda environment that contains all the necessary packages for the jupyter-notebook. Use the command <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">activate</span> <span class="pre">env_name</span></code> for activating the conda environment.</p></li>
+<li><p>create a myport variable which the jupyter can listen to.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># export myport variable that can be any number.</span>
+<span class="c1"># usually a positive integer between 0 to 65000</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">myport</span><span class="o">=</span><span class="m">10053</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="13">
+<li><p>Start a jupyter session with the following command,</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter-notebook<span class="w"> </span>--no-browser<span class="w"> </span>--port<span class="o">=</span><span class="nv">$myport</span><span class="w"> </span>--ip<span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span>
+</pre></div>
+</div>
+<p>This will give a result something as follows,</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[I 2024-03-20 09:57:25.859 ServerApp] Package notebook took 0.0000s to import
+[I 2024-03-20 09:57:26.070 ServerApp] Package jupyter_lsp took 0.2106s to import
+[W 2024-03-20 09:57:26.070 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2024-03-20 09:57:26.156 ServerApp] Package jupyter_server_terminals took 0.0856s to import
+[I 2024-03-20 09:57:26.157 ServerApp] Package jupyterlab took 0.0000s to import
+[I 2024-03-20 09:57:26.332 ServerApp] Package notebook_shim took 0.0000s to import
+[W 2024-03-20 09:57:26.332 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2024-03-20 09:57:26.372 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2024-03-20 09:57:26.375 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[I 2024-03-20 09:57:26.378 ServerApp] jupyterlab | extension was successfully linked.
+[I 2024-03-20 09:57:26.381 ServerApp] notebook | extension was successfully linked.
+[I 2024-03-20 09:57:30.086 ServerApp] notebook_shim | extension was successfully linked.
+[I 2024-03-20 09:57:30.205 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2024-03-20 09:57:30.207 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2024-03-20 09:57:30.207 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2024-03-20 09:57:30.216 LabApp] JupyterLab extension loaded from /gpfs01/home/uizas3/.conda/envs/juptest/lib/python3.12/site-packages/jupyterlab
+[I 2024-03-20 09:57:30.216 LabApp] JupyterLab application directory is /gpfs01/home/uizas3/.conda/envs/juptest/share/jupyter/lab
+[I 2024-03-20 09:57:30.216 LabApp] Extension Manager is &#39;pypi&#39;.
+[I 2024-03-20 09:57:30.218 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2024-03-20 09:57:30.220 ServerApp] notebook | extension was successfully loaded.
+[I 2024-03-20 09:57:30.220 ServerApp] Serving notebooks from local directory: /gpfs01/home/uizas3/cuda-related/juulich/python-hpc
+[I 2024-03-20 09:57:30.220 ServerApp] Jupyter Server 2.10.0 is running at:
+[I 2024-03-20 09:57:30.220 ServerApp] http://hpclogin01.int.ada.nottingham.ac.uk:12342/tree?token=1fd967b62ecec8ee5458bb14022d4200b1a07c3c6177b129
+[I 2024-03-20 09:57:30.220 ServerApp]     http://127.0.0.1:12342/tree?token=1fd967b62ecec8ee5458bb14022d4200b1a07c3c6177b129
+[I 2024-03-20 09:57:30.220 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2024-03-20 09:57:30.224 ServerApp]
+
+    To access the server, open this file in a browser:
+        file:///gpfs01/home/uizas3/.local/share/jupyter/runtime/jpserver-1632070-open.html
+    Or copy and paste one of these URLs:
+        http://hpclogin01.int.ada.nottingham.ac.uk:12342/tree?token=1fd967b62ecec8ee5458bb14022d4200b1a07c3c6177b129
+        http://127.0.0.1:12342/tree?token=1fd967b62ecec8ee5458bb14022d4200b1a07c3c6177b129
+[I 2024-03-20 09:57:30.267 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+</pre></div>
+</div>
+<ol class="arabic simple" start="14">
+<li><p>Click/ (or copy) the link that would look something similar to the following</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:12342/tree?token<span class="o">=</span>1fd967b62ecec8ee5458bb14022d4200b1a07c3c6177b129
+</pre></div>
+</div>
+<ol class="arabic simple" start="15">
+<li><p>Open the VNC session’s browser, and paste the link in the web address.</p></li>
+<li><p>This should open the jupyter “Home” directory, which would indicate the jupyter-notebooks present in your chosen directory, from which the command in step 12. was run.</p></li>
+<li><p>You can now run your python code as done in jupyter notebooks. Make sure to have all the required packages installed before , instead of installing them here.</p></li>
+</ol>
+<p>Note that the above step of running a jupyter-notebook (step 12) is especially not to be done at the home login, as the home login is a shared space for all the ADA users. To do this without the OpenOnDemand, we look at the following with an interactive session.</p>
+</section>
+<section id="using-an-interactive-session">
+<h2>Using an interactive session<a class="headerlink" href="#using-an-interactive-session" title="Link to this heading">#</a></h2>
+<p>In this section, one would be able to access a compute node from the web browser of your systems/laptop for your jupyter-notebooks.</p>
+<ol class="arabic simple">
+<li><p>Go to the directory in your home directory on ADA which contains a jupyter notebook.</p></li>
+<li><p>Load anaconda module,</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>anaconda-uoneasy/2023.02.6
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Create a conda environement of your required packages here. Refer <a class="reference internal" href="01anaconda_chapter.html#create-a-conda-env"><span class="std std-ref">Create a conda env</span></a> for how to do this.  Make sure the <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> package is installed in this conda environment.</p></li>
+<li><p>Book an interactive session. This means that you will have an exclusive access to a requested resource for a specified duration of time. Use the following command accordingly,</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srun<span class="w"> </span>--partition<span class="o">=</span>defq<span class="w"> </span>--nodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--mem-384g<span class="w"> </span>--time<span class="o">=</span><span class="m">2</span>:00:00<span class="w"> </span>--pty<span class="w"> </span>/bin/bash
+
+<span class="c1"># change partition flag to the appropriate partition accordingly.</span>
+<span class="c1"># Thumb rule for nodes is kept as 1, as going to 2 nodes includes a communication overhead, slowing down computations.</span>
+<span class="c1"># Thumb rule for mem flag is 4 times the number of cores on that partition for 1 node. Say for example, for defq partition 1 node has 96 cores, so 96 x 4 = 384G. Same applies for other partitions as well, however are slightly different for hmemq partition and the GPU partitions.</span>
+<span class="c1"># Recommended time is also for 2 hours, however, remember that after this scheduled time, the allocated resource will be closed, which means, any notebook running during that time will also close and will be difficult to recover. Set the time accordingly.</span>
+</pre></div>
+</div>
+<p>This means that 1 full node with 384G memory (96 cores with 4GB each) is requested for 2 hours time on the <code class="docutils literal notranslate"><span class="pre">defq</span></code> partition. Once the resource becomes available and you are inside the interactive session, the shell will change to the name of the corresponding compute node, i.e.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>userid@<span class="w"> </span>hpclogin02<span class="w"> </span><span class="o">(</span>Ada<span class="o">)</span>
+
+<span class="c1">## will change to the booked resources, say copmp004 becomes available.</span>
+
+$<span class="w"> </span>userid<span class="w"> </span>@<span class="w"> </span>comp004<span class="w"> </span><span class="o">(</span>Ada<span class="o">)</span>
+</pre></div>
+</div>
+<p>This means that you have booked the requested resource exclusively for yourself.</p>
+<ol class="arabic simple" start="5">
+<li><p>Activate the created environment.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>environement_name
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Export a myport variable as follows,</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This can be any positive integer between 1024 and 65000</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">myport</span><span class="o">=</span><span class="m">8891</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Use the following tunnelling command that will be used later,</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># change hpclogin01 to hpclogin02, if that was your chosen home login.</span>
+<span class="c1"># myport will be taken from the variable declared in the step above, while</span>
+<span class="c1"># hostname will be replaced by the booked resource that was allotted during interactive session booking step.</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ssh -NL </span><span class="nv">$myport</span><span class="s2">:</span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">:</span><span class="nv">$myport</span><span class="s2"> </span><span class="nv">$USER</span><span class="s2">@hpclogin01.ada.nottingham.ac.uk&quot;</span>
+
+<span class="c1"># copy the result of this command somewhere, and will be used later.</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Unset the <code class="docutils literal notranslate"><span class="pre">XDG_RUNTIME_DIR</span></code> environement variable to avoid any permissions issue, with the following command,</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">XDG_RUNTIME_DIR</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Open jupyter session, with the following command,</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter-notebook<span class="w"> </span>--no-browswer<span class="w"> </span>--port<span class="o">=</span><span class="nv">$myport</span><span class="w"> </span>--ip<span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">jupyter-notebook</span></code> command will only work, if the created environement has the <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> package. If you have not installed it, then exit the interactive session, go back to the home login, activate the environement, install the jupyter package, and then re-open the interactive session.</p>
+<p>Also, it is possible that the selected Linux port 8889 to connect to the notebook is unavailable. If you don’t specify the port, it will default to port 8888 but sometimes this port can be already in use either on the remote machine or the local one (i.e., your laptop). If the port you selected is unavailable, you will get an error message, in which case you should just pick another one. It is best to keep it greater than 1024. Consider starting with 8888 and increment by 1 if it fails, e.g., try 8888, 8889, 8890 and so on. If you are running on a different port then substitute your port number for 8889.</p>
+<ol class="arabic simple" start="10">
+<li><p>A successful commmand above, will indicate a result like the following,</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.450<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>notebook<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0000s<span class="w"> </span>to<span class="w"> </span>import
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.459<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>jupyter_lsp<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0079s<span class="w"> </span>to<span class="w"> </span>import
+<span class="o">[</span>W<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.459<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>A<span class="w"> </span><span class="sb">`</span>_jupyter_server_extension_points<span class="sb">`</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>was<span class="w"> </span>not<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>jupyter_lsp.<span class="w"> </span>Instead,<span class="w"> </span>a<span class="w"> </span><span class="sb">`</span>_jupyter_server_extension_paths<span class="sb">`</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>was<span class="w"> </span>found<span class="w"> </span>and<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>used<span class="w"> </span><span class="k">for</span><span class="w"> </span>now.<span class="w"> </span>This<span class="w"> </span><span class="k">function</span><span class="w"> </span>name<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>deprecated<span class="w"> </span><span class="k">in</span><span class="w"> </span>future<span class="w"> </span>releases<span class="w"> </span>of<span class="w"> </span>Jupyter<span class="w"> </span>Server.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.462<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>jupyter_server_terminals<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0031s<span class="w"> </span>to<span class="w"> </span>import
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.462<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>jupyterlab<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0000s<span class="w"> </span>to<span class="w"> </span>import
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.479<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Package<span class="w"> </span>notebook_shim<span class="w"> </span>took<span class="w"> </span><span class="m">0</span>.0000s<span class="w"> </span>to<span class="w"> </span>import
+<span class="o">[</span>W<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.479<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>A<span class="w"> </span><span class="sb">`</span>_jupyter_server_extension_points<span class="sb">`</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>was<span class="w"> </span>not<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>notebook_shim.<span class="w"> </span>Instead,<span class="w"> </span>a<span class="w"> </span><span class="sb">`</span>_jupyter_server_extension_paths<span class="sb">`</span><span class="w"> </span><span class="k">function</span><span class="w"> </span>was<span class="w"> </span>found<span class="w"> </span>and<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>used<span class="w"> </span><span class="k">for</span><span class="w"> </span>now.<span class="w"> </span>This<span class="w"> </span><span class="k">function</span><span class="w"> </span>name<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>deprecated<span class="w"> </span><span class="k">in</span><span class="w"> </span>future<span class="w"> </span>releases<span class="w"> </span>of<span class="w"> </span>Jupyter<span class="w"> </span>Server.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.480<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyter_lsp<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>linked.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.482<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyter_server_terminals<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>linked.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.484<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyterlab<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>linked.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.486<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>notebook<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>linked.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.608<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>notebook_shim<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>linked.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.617<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>notebook_shim<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>loaded.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.618<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyter_lsp<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>loaded.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.619<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyter_server_terminals<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>loaded.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.620<span class="w"> </span>LabApp<span class="o">]</span><span class="w"> </span>JupyterLab<span class="w"> </span>extension<span class="w"> </span>loaded<span class="w"> </span>from<span class="w"> </span>/gpfs01/home/uizas3/.conda/envs/juptest/lib/python3.12/site-packages/jupyterlab
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.620<span class="w"> </span>LabApp<span class="o">]</span><span class="w"> </span>JupyterLab<span class="w"> </span>application<span class="w"> </span>directory<span class="w"> </span>is<span class="w"> </span>/gpfs01/home/uizas3/.conda/envs/juptest/share/jupyter/lab
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.620<span class="w"> </span>LabApp<span class="o">]</span><span class="w"> </span>Extension<span class="w"> </span>Manager<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;pypi&#39;</span>.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.621<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>jupyterlab<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>loaded.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.623<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>notebook<span class="w"> </span><span class="p">|</span><span class="w"> </span>extension<span class="w"> </span>was<span class="w"> </span>successfully<span class="w"> </span>loaded.
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.623<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Serving<span class="w"> </span>notebooks<span class="w"> </span>from<span class="w"> </span><span class="nb">local</span><span class="w"> </span>directory:<span class="w"> </span>/gpfs01/home/uizas3
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.623<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Jupyter<span class="w"> </span>Server<span class="w"> </span><span class="m">2</span>.10.0<span class="w"> </span>is<span class="w"> </span>running<span class="w"> </span>at:
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.623<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>http://hmcomp003.int.ada.nottingham.ac.uk:8889/tree?token<span class="o">=</span>c82ffb3d2c9d2b9431cf1288f093ae54ed8afa64c041a11c
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.623<span class="w"> </span>ServerApp<span class="o">]</span><span class="w">     </span>http://127.0.0.1:8889/tree?token<span class="o">=</span>c82ffb3d2c9d2b9431cf1288f093ae54ed8afa64c041a11c
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.623<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Use<span class="w"> </span>Control-C<span class="w"> </span>to<span class="w"> </span>stop<span class="w"> </span>this<span class="w"> </span>server<span class="w"> </span>and<span class="w"> </span>shut<span class="w"> </span>down<span class="w"> </span>all<span class="w"> </span>kernels<span class="w"> </span><span class="o">(</span>twice<span class="w"> </span>to<span class="w"> </span>skip<span class="w"> </span>confirmation<span class="o">)</span>.
+<span class="o">[</span>C<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.625<span class="w"> </span>ServerApp<span class="o">]</span>
+
+<span class="w">    </span>To<span class="w"> </span>access<span class="w"> </span>the<span class="w"> </span>server,<span class="w"> </span>open<span class="w"> </span>this<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>browser:
+<span class="w">        </span>file:///gpfs01/home/uizas3/.local/share/jupyter/runtime/jpserver-336205-open.html
+<span class="w">    </span>Or<span class="w"> </span>copy<span class="w"> </span>and<span class="w"> </span>paste<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>these<span class="w"> </span>URLs:
+<span class="w">        </span>http://hmcomp003.int.ada.nottingham.ac.uk:8889/tree?token<span class="o">=</span>c82ffb3d2c9d2b9431cf1288f093ae54ed8afa64c041a11c
+<span class="w">        </span>http://127.0.0.1:8889/tree?token<span class="o">=</span>c82ffb3d2c9d2b9431cf1288f093ae54ed8afa64c041a11c
+<span class="o">[</span>I<span class="w"> </span><span class="m">2024</span>-03-21<span class="w"> </span><span class="m">11</span>:18:39.637<span class="w"> </span>ServerApp<span class="o">]</span><span class="w"> </span>Skipped<span class="w"> </span>non-installed<span class="w"> </span>server<span class="o">(</span>s<span class="o">)</span>:<span class="w"> </span>bash-language-server,<span class="w"> </span>dockerfile-language-server-nodejs,<span class="w"> </span>javascript-typescript-langserver,<span class="w"> </span>jedi-language-server,<span class="w"> </span>julia-language-server,<span class="w"> </span>pyright,<span class="w"> </span>python-language-server,<span class="w"> </span>python-lsp-server,<span class="w"> </span>r-languageserver,<span class="w"> </span>sql-language-server,<span class="w"> </span>texlab,<span class="w"> </span>typescript-language-server,<span class="w"> </span>unified-language-server,<span class="w"> </span>vscode-css-languageserver-bin,<span class="w"> </span>vscode-html-languageserver-bin,<span class="w"> </span>vscode-json-languageserver-bin,<span class="w"> </span>yaml-language-server
+</pre></div>
+</div>
+<p>Leave the session running here.</p>
+<ol class="arabic simple" start="11">
+<li><p>Start another terminal session in your laptop or your system and setup a tunnel using the command obtained in step 6</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># for this example say, the myport was 8891, and hmcomp003 was the alloted resource.</span>
+<span class="c1"># The echo command from step 7 should look something like the following,</span>
+
+ssh<span class="w"> </span>-NL<span class="w"> </span><span class="m">8891</span>:hmcomp003.int.ada.nottingham.ac.uk:8891<span class="w"> </span>uizas3@hpclogin01.ada.nottingham.ac.uk
+</pre></div>
+</div>
+<p>a password prompt should appear, that on entering the password will not do anything.</p>
+<ol class="arabic simple" start="12">
+<li><p>After this, go back to the runnning jupyter-session and copy the link that would look something like the following just at the end.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:8889/tree?token<span class="o">=</span>c82ffb3d2c9d2b9431cf1288f093ae54ed8afa64c041a11c
+</pre></div>
+</div>
+<ol class="arabic simple" start="13">
+<li><p>Go to your laptop’s or system’s web browser and paste this link onto it. Your jupyter-notebook session should now be visible from your laptop’s browser.</p></li>
+</ol>
+<p>This simply means that you are able to access ADA (or the booked resource from step 3) from your web browser.</p>
+<ol class="arabic simple" start="14">
+<li><p>Have fun with your work.</p></li>
+</ol>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="01anaconda_chapter.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Anaconda</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Atul Singh
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Using Jupyter notebooks on ADA</a><ul>
+<li><a class="reference internal" href="#using-openondemand">Using OpenOnDemand</a></li>
+<li><a class="reference internal" href="#using-an-interactive-session">Using an interactive session</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>
