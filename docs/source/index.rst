@@ -3,9 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Anaconda's documentation!
+Welcome to Anaconda for ADA's documentation!
 ====================================
 
+.. jupyter section referred majorly from here. 
+   https://researchcomputing.princeton.edu/support/knowledge-base/jupyter
 
 Chapters
 ========
